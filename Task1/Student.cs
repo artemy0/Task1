@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task1
 {
@@ -12,7 +8,7 @@ namespace Task1
         public string FName { get; set; } // I could specify Get and Set method.
         public string LName { get; set; }
         public string Class { get; set; }
-        public int age;
+        private int age;
         public int Age
         {
             get{ return age;}
@@ -28,6 +24,7 @@ namespace Task1
         //array of Marks
         public Mark[] Marks;
 
+        //the constructor has a few parameter named FName, LName, Age, Class and Marks, of type string, string, int, string and Mark[]!!!
         public Student(string FName, string LName, int Age, string Class, params Mark[] Marks)
         {
             this.FName = FName;
@@ -56,6 +53,24 @@ namespace Task1
             {
                 Marks[i].Value = 0;
             }
+        }
+
+        // the method GetInfoAboutStudent has no parameter!!!
+        public void GetInfoAboutStudent()
+        {
+            Console.WriteLine($"First name: {FName}\nLast name: {LName}\nAge: {Age}\nClass: {Class}\nMarks:");
+            //there's used foreach statement iterates!!!
+            foreach (Mark mark in Marks)
+            {
+                Console.WriteLine($"{mark.SubjectName} - {mark.Value}");
+            }
+            Console.WriteLine();
+        }
+
+        //the method GoToTheNextClass has a parameters named Number and Character, of type int and char!!!
+        public void GoToTheNextClass(int Number, char Character)
+        {
+            Class = Number.ToString() + Character.ToString();
         }
     }
 }
